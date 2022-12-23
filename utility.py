@@ -9,7 +9,7 @@ from linebot.models import TextSendMessage, ImageSendMessage, TemplateSendMessag
 
 line_bot_api = LineBotApi('ais+Wjhq4dxNDBMXM3etNFEN/7trYXmfC/sXN0UCyeaw/1xPMD8AGsteMUHdCqAgLXSwRsFT6FsmEupLPGdPVV7MrQOe7jkuVBKcs8gDeOuc8ZT4wmeQMFigBTPfTjuIA2zQ3io0zwj9xESyLbMBaAdB04t89/1O/w1cDnyilFU=')
 
-ngrok_url = "https://9798-182-234-148-141.jp.ngrok.io"
+ngrok_url = "https://4672-182-234-148-141.jp.ngrok.io"
 
 def send_text_message(reply_token, text):
     line_bot_api.reply_message(reply_token, TextSendMessage(text=text))
@@ -516,7 +516,7 @@ def send_button_asknum(event):
     line_bot_api.reply_message(event.reply_token, message)
     return "OK"
 
-def send_button_keepordering(event,keep_order):
+def send_button_keepordering(event,keep_order1,keep_order2):
     im_url = "/imgs/logo.jpg"
     message = TemplateSendMessage(
         alt_text='Carousel template',
@@ -525,7 +525,18 @@ def send_button_keepordering(event,keep_order):
                 CarouselColumn(
                     #thumbnail_image_url=ngrok_url+im_url,
                     title='繼續訂餐',
-                    text=keep_order+'\n點下方按鈕繼續訂餐',
+                    text=keep_order1,
+                    actions=[
+                        MessageTemplateAction(
+                            label='繼續訂餐',
+                            text='繼續訂餐'
+                        )
+                    ]
+                ),
+                CarouselColumn(
+                    #thumbnail_image_url=ngrok_url+im_url,
+                    title='繼續訂餐',
+                    text=keep_order2+'\n點下方按鈕繼續訂餐',
                     actions=[
                         MessageTemplateAction(
                             label='繼續訂餐',
@@ -539,7 +550,7 @@ def send_button_keepordering(event,keep_order):
     line_bot_api.reply_message(event.reply_token, message)
     return "OK"
 
-def send_button_orderfinish(event,finish_message):
+def send_button_orderfinish(event,finish_message1,finish_message2):
     im_url = "/imgs/logo.jpg"
     message = TemplateSendMessage(
         alt_text='Carousel template',
@@ -548,7 +559,18 @@ def send_button_orderfinish(event,finish_message):
                 CarouselColumn(
                     #thumbnail_image_url=ngrok_url+im_url,
                     title='訂餐完成',
-                    text=finish_message+'\n點下方按鈕返回',
+                    text=finish_message1,
+                    actions=[
+                        MessageTemplateAction(
+                            label='返回',
+                            text='返回'
+                        )
+                    ]
+                ),
+                CarouselColumn(
+                    #thumbnail_image_url=ngrok_url+im_url,
+                    title='訂餐完成',
+                    text=finish_message2+'\n點下方按鈕返回',
                     actions=[
                         MessageTemplateAction(
                             label='返回',

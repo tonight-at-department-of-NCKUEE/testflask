@@ -196,7 +196,7 @@ class TocMachine(GraphMachine):
         or text == "5" or text == "6" or text == "7" or text == "8"
         or text == "9" or text == "0")
     def on_enter_record(self, event):
-        message = "你目前點了"+self.orderlist[self.food]+"個"+self.food+"\n"
+        message = "你目前點了\n"+self.orderlist[self.food]+"個"+self.food+"\n"
         if(self.orderlist["當歸土虱頭"]!="0" and "當歸土虱頭"!=self.food):
             message+=self.orderlist["當歸土虱頭"]+"個當歸土虱頭"+"\n"
         if(self.orderlist["當歸土虱中"]!="0" and "當歸土虱中"!=self.food):
@@ -218,7 +218,8 @@ class TocMachine(GraphMachine):
         if(self.orderlist["油豆腐"]!="0" and "油豆腐"!=self.food):
             message+=self.orderlist["油豆腐"]+"個油豆腐"+"\n"
         message += "你還要點什麼嗎?"
-        send_button_keepordering(event,message)
+        firstpart, secondpart = message[:len(message)//2], message[len(message)//2:]
+        send_button_keepordering(event,firstpart,secondpart)
         
 
     #orderfinish
@@ -259,7 +260,8 @@ class TocMachine(GraphMachine):
             message+=self.orderlist["油豆腐"]+"個油豆腐"+"\n"
             cost += eval(self.orderlist["油豆腐"])*self.price["油豆腐"]
         message += "一共" + str(cost) +"元"
-        send_button_orderfinish(event,message)
+        firstpart, secondpart = message[:len(message)//2], message[len(message)//2:]
+        send_button_orderfinish(event,firstpart,secondpart)
         self.food = '?'
         self.orderlist["當歸土虱頭"]='0'
         self.orderlist["當歸土虱中"]='0'
