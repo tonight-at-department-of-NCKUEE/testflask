@@ -154,5 +154,5 @@ def create_machine():
         show_conditions=True,
     )
 
-    machine.get_graph().draw('my_state_diagram.png', prog = 'dot')
+    #machine.get_graph().draw('my_state_diagram.png', prog = 'dot')
     return machine

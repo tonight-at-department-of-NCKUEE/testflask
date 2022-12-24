@@ -13,8 +13,12 @@ from machine import create_machine
 app = Flask(__name__,static_folder = "imgs")
 
 # LINE 聊天機器人的基本資料
-line_bot_api = LineBotApi('ais+Wjhq4dxNDBMXM3etNFEN/7trYXmfC/sXN0UCyeaw/1xPMD8AGsteMUHdCqAgLXSwRsFT6FsmEupLPGdPVV7MrQOe7jkuVBKcs8gDeOuc8ZT4wmeQMFigBTPfTjuIA2zQ3io0zwj9xESyLbMBaAdB04t89/1O/w1cDnyilFU=')
-parser = WebhookParser('fc5f72bec41b6936377a3f7593b79d6f')
+
+channel_access_token = os.getenv("LINE_CHANNEL_ACCESS_TOKEN", None)
+channel_secret = os.getenv("LINE_CHANNEL_SECRET", None)
+line_bot_api = LineBotApi(channel_access_token)
+parser = WebhookParser(channel_secret)
+
 
 machines = {}
 
@@ -53,4 +57,4 @@ def callback():
 
 
 if __name__ == "__main__":
-    app.run(port = 5002)
+    app.run(host = '0.0.0.0',port = 3000)

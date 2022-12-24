@@ -9,7 +9,7 @@ from linebot.models import TextSendMessage, ImageSendMessage, TemplateSendMessag
 
 line_bot_api = LineBotApi('ais+Wjhq4dxNDBMXM3etNFEN/7trYXmfC/sXN0UCyeaw/1xPMD8AGsteMUHdCqAgLXSwRsFT6FsmEupLPGdPVV7MrQOe7jkuVBKcs8gDeOuc8ZT4wmeQMFigBTPfTjuIA2zQ3io0zwj9xESyLbMBaAdB04t89/1O/w1cDnyilFU=')
 
-ngrok_url = "https://4672-182-234-148-141.jp.ngrok.io"
+ngrok_url = "https://linebot-catfish.onrender.com"
 
 def send_text_message(reply_token, text):
     line_bot_api.reply_message(reply_token, TextSendMessage(text=text))

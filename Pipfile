@@ -12,6 +12,7 @@ graphviz = "*"
 html5lib = "*"
 requests = "*"
 beautifulsoup4 = "*"
+python-dotenv = "*"
 
 [dev-packages]
 
