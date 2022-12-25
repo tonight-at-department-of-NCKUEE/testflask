@@ -19,19 +19,26 @@ FSM：為每個使用者個別建立 python transitions 套件所提供的 FSM�
 ![](https://i.imgur.com/gd85p3q.png)
 
 例如:
+
 當歸土虱
+
 ![](https://i.imgur.com/tDmcdoY.png)
 
 藥頭排骨
+
 ![](https://i.imgur.com/wpUc2iw.png)
 
 
 **店家資訊**
+
 點擊按鈕可取得資訊
+
 ![](https://i.imgur.com/wL1lwoO.png)
 
 例如:
+
 營業資訊
+
 ![](https://i.imgur.com/yS6Xfkt.png)
 
 
